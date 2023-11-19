@@ -1,0 +1,12 @@
+version: '3.0'
+
+services:
+  vwapi:
+    restart: always
+    build:
+      context: ./src
+      dockerfile: Dockerfile
+    
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.vwapi.rule=Host(`vwapi.mxf.su`)
